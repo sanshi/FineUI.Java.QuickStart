@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:f="http://fineui.com/java" layout:decorate="~{shared/layout}">
+
+    <head>
+        <title>FineUI.Java · 登录</title>
+    </head>
+
+    <body>
+        <th:block layout:fragment="body">
+            <div style="padding:10px">
+                用户名：admin<br />
+                密码：admin<br /><br /><br />
+                注意：在任意输入框内按回车键都会触发表单的提交（相当于点击【登录】按钮）。
+            </div>
+
+            <f:window id="Window1" width="350" window-position="GoldenSection" enable-close="false" is-modal="false" title="登录表单">
+                <f:items>
+                    <f:simple-form id="SimpleForm1" show-header="false" label-width="80" body-padding="10" show-border="false">
+                        <f:items>
+                            <f:text-box id="tbxUserName" show-red-star="true" required="true" label="用户名"></f:text-box>
+                            <f:text-box id="tbxPassword" show-red-star="true" required="true" text-mode="Password" label="密码"></f:text-box>
+                        </f:items>
+                    </f:simple-form>
+                </f:items>
+                <f:toolbars>
+                    <f:toolbar id="Toolbar1" position="Bottom" toolbar-align="Right">
+                        <f:items>
+                            <f:button id="btnLogin" type="Submit" text="登录" validate-target="Top" validate-forms="SimpleForm1" button-color="Primary"
+                                on-click="btnLogin_Click"></f:button>
+                            <f:button id="btnReset" type="Reset" text="重置"></f:button>
+                        </f:items>
+                    </f:toolbar>
+                </f:toolbars>
+            </f:window>
+        </th:block>
+    </body>
+
+</html>

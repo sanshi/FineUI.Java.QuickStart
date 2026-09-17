@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:f="http://fineui.com/java" layout:decorate="~{shared/layout}">
+
+    <head>
+        <title>FineUI.Java 快速入门</title>
+        <th:block layout:fragment="head">
+            <link type="text/css" rel="stylesheet" href="/res/css/index.css" />
+        </th:block>
+    </head>
+
+    <body>
+        <th:block layout:fragment="body">
+            <div id="maincontent">
+                <h2>FineUI.Java</h2>
+                Java 企业级全栈 UI 框架
+
+                <br />
+                <h2>支持的浏览器</h2>
+                Chrome、Firefox、Edge、Safari
+
+                <br />
+                <h2>相关链接</h2>
+                <ul class="list">
+                    <li>
+                        首页：<a target="_blank" href="http://fineui.com/java/">http://fineui.com/java/</a>
+                    </li>
+                    <li>
+                        示例：<a target="_blank" href="https://fineui.com/java/demo/">https://fineui.com/java/demo/</a>
+                    </li>
+                    <li>
+                        更新：<a target="_blank" href="http://fineui.com/versions/">http://fineui.com/versions/</a>
+                    </li>
+                    <li>
+                        社区：<a target="_blank" href="http://fineui.com/fans/">http://fineui.com/fans/</a>
+                    </li>
+                </ul>
+            </div>
+
+            <f:panel id="mainPanel" layout="Region" css-class="mainpanel" show-border="false" show-header="false" is-view-port="true">
+                <f:items>
+                    <f:panel id="sidebarRegion" css-class="sidebarregion" region-position="Left" show-border="false" width="260" show-header="false"
+                        enable-collapse="false" collapsed="false" layout="VBox" region-split="true" region-split-icon="false" region-split-width="3"
+                        region-split-transparent="true">
+                        <f:items>
+                            <f:content-panel id="sideheaderTopPanel" css-class="topregion" show-border="false" show-header="false">
+                                <div id="sideheader" class="f-widget-header f-mainheader">
+                                    <a class="logo" href="/" title="FineUI.Java 快速入门">FineUI.Java</a>
+                                    <div class="logo-subtitle">Spring Boot</div>
+                                </div>
+                            </f:content-panel>
+                            <f:panel id="leftPanel" css-class="leftregion" box-flex="1" show-border="false" show-header="false" layout="Fit">
+                                <f:items>
+                                    <f:tree id="treeMenu" show-border="false" show-header="false" hide-h-scrollbar="true" hide-v-scrollbar="true"
+                                        expander-to-right="true" header-style="true" all-header-style="true">
+                                        <f:nodes>
+                                            <f:tree-node text="默认分类" expanded="true">
+                                                <f:tree-node text="开始页面" navigate-url="/hello"></f:tree-node>
+                                                <f:tree-node text="登录页面" navigate-url="/login"></f:tree-node>
+                                                <f:tree-node text="电影管理" navigate-url="/movie"></f:tree-node>
+                                            </f:tree-node>
+                                        </f:nodes>
+                                    </f:tree>
+                                </f:items>
+                            </f:panel>
+                        </f:items>
+                    </f:panel>
+                    <f:panel id="bodyRegion" css-class="bodyregion" region-position="Center" show-border="false" show-header="false" layout="VBox">
+                        <f:items>
+                            <!--/* 页头：f: 控件直接嵌在 content-panel 里，随面板主体一起渲染 */-->
+                            <f:content-panel id="topPanel" css-class="topregion" show-border="false" show-header="false">
+                                <div id="header" class="f-widget-header f-mainheader">
+                                    <div class="header-left"></div>
+                                    <div class="header-right">
+                                        <f:button id="btnThemeSelect" enable-default-corner="false" enable-default-state="false" icon-font="_Skin"
+                                            icon-align="Top" css-class="icononlyaction themes" tool-tip="主题仓库" click-handler="onThemeSelectClick"></f:button>
+                                        <f:button id="btnUser" enable-default-corner="false" enable-default-state="false" icon-url="/res/images/my_face_80.jpg"
+                                            icon-align="Left" css-class="userpicaction" text="三生石上">
+                                            <f:menu>
+                                                <f:items>
+                                                    <f:menu-button icon-font="_User" text="个人信息" click-handler="onNotImplementedClick"></f:menu-button>
+                                                    <f:menu-button icon-font="_SignOut" text="安全退出" click-handler="onNotImplementedClick"></f:menu-button>
+                                                </f:items>
+                                            </f:menu>
+                                        </f:button>
+                                    </div>
+                                </div>
+                            </f:content-panel>
+                            <f:tab-strip id="mainTabStrip" css-class="centerregion" show-ink-bar="true" ink-bar-position="Bottom" box-flex="1"
+                                show-border="true" enable-tab-close-menu="true">
+                                <f:tabs>
+                                    <f:tab id="tabHomepage" title="首页" icon-font="_Home" enable-iframe="false" body-padding="10" content-el="#maincontent">
+                                    </f:tab>
+                                </f:tabs>
+                            </f:tab-strip>
+                        </f:items>
+                    </f:panel>
+                </f:items>
+            </f:panel>
+
+            <f:window id="windowThemeRoller" hidden="true" enable-resize="true" enable-maximize="true" enable-close="true" height="600" width="850"
+                is-modal="true" clear-iframe-after-close="false" iframe-url="/themes" enable-iframe="true" title="主题仓库"></f:window>
+        </th:block>
+
+        <th:block layout:fragment="script">
+            <script>
+                // 点击主题仓库
+                function onThemeSelectClick(event) {
+                    F.ui.windowThemeRoller.show();
+                }
+
+                // 尚未实现的菜单项
+                function onNotImplementedClick(event) {
+                    F.alert('尚未实现');
+                }
+
+                // 页面控件初始化完毕后，初始化树与选项卡的联动（点击树节点在选项卡中打开对应 IFrame 页面）
+                F.ready(function() {
+                    if (!F.ui.treeMenu) return;
+                    F.initTreeTabStrip(F.ui.treeMenu, F.ui.mainTabStrip, {
+                        maxTabCount: 10,
+                        maxTabMessage: '请先关闭一些选项卡（最多允许打开 10 个）！'
+                    });
+                });
+
+            </script>
+        </th:block>
+    </body>
+
+</html>

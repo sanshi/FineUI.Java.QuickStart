@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:f="http://fineui.com/java" layout:decorate="~{shared/layout}">
+
+    <head>
+        <title>FineUI.Java · 新增电影</title>
+    </head>
+
+    <body>
+        <th:block layout:fragment="body">
+            <f:panel id="Panel1" show-border="false" show-header="false" auto-scroll="true" is-view-port="true" layout="Fit">
+                <f:items>
+                    <f:simple-form id="SimpleForm1" show-border="false" show-header="false" body-padding="10">
+                        <f:items>
+                            <f:text-box for="movie.title"></f:text-box>
+                            <f:date-picker for="movie.releaseDate"></f:date-picker>
+                            <f:text-box for="movie.genre"></f:text-box>
+                            <f:number-box for="movie.price"></f:number-box>
+                        </f:items>
+                    </f:simple-form>
+                </f:items>
+                <f:toolbars>
+                    <f:toolbar position="Bottom" toolbar-align="Center">
+                        <f:items>
+                            <f:button id="BtnClose" icon-font="Close" text="关闭" click-handler="onCloseClick"></f:button>
+                            <f:toolbar-separator></f:toolbar-separator>
+                            <f:button id="btnSaveClose" icon-font="Save" text="保存后关闭" validate-forms="SimpleForm1" on-click="btnSaveClose_Click"></f:button>
+                        </f:items>
+                    </f:toolbar>
+                </f:toolbars>
+            </f:panel>
+        </th:block>
+
+        <th:block layout:fragment="script">
+            <script>
+                // 点击「关闭」：收起包着本页的那个窗体
+                // 本页运行在窗体内部的 IFrame 里，拿不到外层列表页的 F.ui.Window1，用 F.activeWindow
+                function onCloseClick(event) {
+                    F.activeWindow.hide();
+                }
+
+            </script>
+        </th:block>
+    </body>
+
+</html>
