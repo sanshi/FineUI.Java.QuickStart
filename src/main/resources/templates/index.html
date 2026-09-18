@@ -4,7 +4,7 @@
     <head>
         <title>FineUI.Java 快速入门</title>
         <th:block layout:fragment="head">
-            <link type="text/css" rel="stylesheet" href="/res/css/index.css" />
+            <link type="text/css" rel="stylesheet" th:href="@{/res/css/index.css}" />
         </th:block>
     </head>
 
@@ -44,7 +44,7 @@
                         <f:items>
                             <f:content-panel id="sideheaderTopPanel" css-class="topregion" show-border="false" show-header="false">
                                 <div id="sideheader" class="f-widget-header f-mainheader">
-                                    <a class="logo" href="/" title="FineUI.Java 快速入门">FineUI.Java</a>
+                                    <a class="logo" th:href="@{/}" title="FineUI.Java 快速入门">FineUI.Java</a>
                                     <div class="logo-subtitle">Spring Boot</div>
                                 </div>
                             </f:content-panel>

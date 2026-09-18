@@ -11,7 +11,7 @@
         <meta charset="UTF-8" />
         <title layout:title-pattern="$CONTENT_TITLE">FineUI.Java 快速入门</title>
         <f:styles></f:styles>
-        <link rel="stylesheet" href="/res/css/common.css" />
+        <link rel="stylesheet" th:href="@{/res/css/common.css}" />
         <th:block layout:fragment="head"></th:block>
     </head>
 
