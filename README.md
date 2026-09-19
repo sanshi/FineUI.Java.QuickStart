@@ -9,15 +9,13 @@
 主要页面：电影列表（`movie`）、新增（`movie-new`）、编辑（`movie-edit`）、登录（`login`）、
 开始页（`hello`）、主题仓库（`themes`）、首页框架页（`index`）。
 
----
-
-## 一、环境要求
+## 环境要求
 
 | 依赖 | 说明 |
 |------|------|
 | JDK 17+ | 项目 `java.version` 为 17（用 JDK 21 编译亦可） |
 | Maven 3.6+ | 本机安装的 Maven（用于构建运行与自动解析依赖） |
-| fineui-java 社区版 | 见第二节：由 Maven Central 自动下载 |
+| fineui-java 社区版 | 见「依赖方式」：由 Maven Central 自动下载 |
 
 装好 JDK 与 Maven 后，先验证环境就绪（两条命令都应正常输出版本号）：
 
@@ -31,34 +29,34 @@ mvn -version      # 应输出 Maven 版本，且其中 Java version 为 17+
 
 > 无需安装数据库——H2 是嵌入式的，随依赖引入即可。
 
----
+## 依赖方式
 
-## 二、FineUI.Java 社区版依赖
+项目文件已声明从公共软件包仓库获取的 Maven 包 `com.fineui:fineui-java`（**社区版**，永久免费商用）。正常联网构建时，包管理器会自动还原依赖；仓库不包含 FineUI.Core.dll、FineUI.Pro.dll、fineui-java.jar，也不包含 FineUI 框架源码。
 
-项目文件已经声明 `com.fineui:fineui-java` 依赖（**社区版**，永久免费商用）。正常联网时直接运行第四节的启动命令即可，Maven 会从中央仓库下载类库及其传递依赖，无需手工安装。
+FineUI 前端运行时（`/F/FineUI.js`、CSS、主题、语言包）已内嵌在 jar 里，`GET /F/FineUI.js` 自动命中——**无需单独部署前端资源**。
 
-> **离线备选**：内网上不了公网、或公司私有仓库没有镜像中央仓库时，到 FineUI 免费社区
-> <https://fineui.com/fans/> 下载 FineUI.Java 社区版【类库】包。解压后会得到：
+## 构建
 
-```
-fineui-java-*.jar                # 库本体（已内嵌 FineUI 前端运行时）
-fineui-java-*.pom                # 依赖描述（自足，含全部传递依赖版本）
-fineui-java-*-javadoc.jar        # API 文档（IDE 引用后有方法提示）
-install.bat / install.sh        # 一键安装脚本（Windows / Linux·macOS）
-README.md                       # 安装说明
+安装 JDK 17 与 Maven 后，在仓库根目录运行：
+
+```bash
+mvn package
 ```
 
-> 进入解压目录，用脚本把 jar / pom / javadoc 一次装入本地仓库：
+## 运行
 
-> - **Windows**：双击 `install.bat`
-> - **Linux / macOS**：执行 `sh install.sh`
+在仓库根目录启动：
 
-> FineUI 前端运行时（`/F/FineUI.js`、CSS、主题、语言包）已内嵌在 jar 里，`GET /F/FineUI.js` 自动命中——
-> **无需单独部署前端资源**。
+```bash
+mvn spring-boot:run
+```
 
----
+启动后浏览器打开 <http://localhost:8081/>（端口由 `src/main/resources/application.properties` 的 `server.port` 决定）。
+首次启动会自动在 H2 里建 `movie` 表并灌入示例数据。
 
-## 三、H2 数据库与 JPA 说明
+**不需要授权文件**：本仓库引用的是公共软件包仓库中的社区版，社区版不做授权校验，克隆下来就能直接跑。
+
+## H2 数据库与 JPA 说明
 
 ### H2 简介
 
@@ -95,23 +93,9 @@ spring.sql.init.mode=always                   # 总是执行 data.sql（脚本�
 > 想换成 MySQL / PostgreSQL？JPA 让切换几乎零成本：改 `pom.xml` 的驱动依赖 + `application.properties` 的连接串即可，
 > 业务代码一行不用改。生产环境建议用 Flyway / Liquibase 做版本化迁移。
 
----
+## 常见问题
 
-## 四、启动项目
-
-```bash
-cd FineUI.Java.QuickStart
-mvn spring-boot:run
-```
-
-启动后浏览器访问 **http://localhost:8081/** （首页框架页；左侧菜单可打开各示例页）。
-首次启动会自动在 H2 里建 `movie` 表并灌入示例数据。
-
----
-
-## 五、常见问题
-
-**启动报找不到 `com.fineui:fineui-java`？** 先检查 Maven 网络、代理与中央仓库镜像；内网环境按第二节使用离线【类库】包。
+**启动报找不到 `com.fineui:fineui-java`？** 先检查 Maven 网络、代理与中央仓库镜像。
 
 **页面样式/脚本 404（/F/FineUI.js 加载不到）？** 确认依赖已经成功解析（前端资源已内嵌其中，无需单独部署）。
 
@@ -119,17 +103,11 @@ mvn spring-boot:run
 判为“非嵌入式”而默认跳过 `data.sql`，用 `always` 强制执行）。
 
 **如何重置数据？** 停应用后删除 `./data/moviedb.mv.db`，重启即重新建表 + 灌种子。
-## 仓库与依赖边界
-
-本仓库是 FineUI.Java.QuickStart 的唯一真相源。项目文件已声明从 Maven Central 获取的 `com.fineui:fineui-java` 依赖；仓库不提交 FineUI DLL、JAR 或框架源码。
 
 ## 许可边界
 
 本仓库中由合肥三生石上软件有限公司拥有著作权的示例或应用项目源代码采用 [MIT 许可证](LICENSE)。FineUI 各端框架源码、二进制软件包、内嵌的 FineUI.js 运行时以及 FineUI 名称、标识和商标不属于 MIT 授权范围，仍适用各自的商业或社区版许可。具体边界见 [NOTICE.md](NOTICE.md)。
-## 构建
 
-安装 JDK 17 与 Maven 后，在仓库根目录运行：
+## 参与贡献
 
-```bash
-mvn package
-```
+请先阅读 `CONTRIBUTING.md`。安全问题请按 `SECURITY.md` 私下报告。
