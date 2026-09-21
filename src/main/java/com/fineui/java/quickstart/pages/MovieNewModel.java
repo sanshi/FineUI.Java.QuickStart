@@ -4,6 +4,7 @@ import com.fineui.java.binding.BindProperty;
 import com.fineui.java.core.ActiveWindow;
 import com.fineui.java.core.EventArgs;
 import com.fineui.java.core.FineUIPage;
+import com.fineui.java.quickstart.PageBase;
 import com.fineui.java.core.FineUIPageBase;
 import com.fineui.java.core.MessageBoxIcon;
 import com.fineui.java.quickstart.model.Movie;
@@ -14,7 +15,7 @@ import com.fineui.java.quickstart.repository.MovieRepository;
  * 表单字段用 {@code for="movie.xxx"} 绑定；保存校验通过后 INSERT，弹「保存成功」并关闭窗口 + 刷新父页列表。
  */
 @FineUIPage("movie-new")
-public class MovieNewModel extends FineUIPageBase {
+public class MovieNewModel extends PageBase {
 
     private final MovieRepository movieRepository;
 

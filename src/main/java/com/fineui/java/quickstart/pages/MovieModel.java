@@ -2,6 +2,7 @@ package com.fineui.java.quickstart.pages;
 
 import com.fineui.java.core.EventArgs;
 import com.fineui.java.core.FineUIPage;
+import com.fineui.java.quickstart.PageBase;
 import com.fineui.java.core.FineUIPageBase;
 import com.fineui.java.core.GridCommandEventArgs;
 import com.fineui.java.core.controls.Grid;
@@ -22,7 +23,7 @@ import java.util.List;
  * {@code row-type-from="movies"} 从 {@link #getMovies()} 的泛型推导列头/类型/日期格式。
  */
 @FineUIPage("movie")
-public class MovieModel extends FineUIPageBase {
+public class MovieModel extends PageBase {
 
     private final MovieRepository movieRepository;
 

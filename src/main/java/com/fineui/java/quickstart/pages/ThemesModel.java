@@ -2,6 +2,7 @@ package com.fineui.java.quickstart.pages;
 
 import com.fineui.java.core.EventArgs;
 import com.fineui.java.core.FineUIPage;
+import com.fineui.java.quickstart.PageBase;
 import com.fineui.java.core.FineUIPageBase;
 
 /**
@@ -10,7 +11,7 @@ import com.fineui.java.core.FineUIPageBase;
  * 本页纯前端交互，无服务端逻辑。
  */
 @FineUIPage("themes")
-public class ThemesModel extends FineUIPageBase {
+public class ThemesModel extends PageBase {
 
     public void Page_Load(Object sender, EventArgs e) {
     }

@@ -2,6 +2,7 @@ package com.fineui.java.quickstart.pages;
 
 import com.fineui.java.core.EventArgs;
 import com.fineui.java.core.FineUIPage;
+import com.fineui.java.quickstart.PageBase;
 import com.fineui.java.core.FineUIPageBase;
 
 /**
@@ -10,7 +11,7 @@ import com.fineui.java.core.FineUIPageBase;
  * 客户端 {@code F.initTreeTabStrip} 完成）。本页无服务端数据逻辑。
  */
 @FineUIPage("index")
-public class IndexModel extends FineUIPageBase {
+public class IndexModel extends PageBase {
 
     public void Page_Load(Object sender, EventArgs e) {
     }

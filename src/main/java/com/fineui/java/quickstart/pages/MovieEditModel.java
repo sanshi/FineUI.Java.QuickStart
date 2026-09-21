@@ -6,6 +6,7 @@ import com.fineui.java.core.AbortPageException;
 import com.fineui.java.core.ActiveWindow;
 import com.fineui.java.core.EventArgs;
 import com.fineui.java.core.FineUIPage;
+import com.fineui.java.quickstart.PageBase;
 import com.fineui.java.core.FineUIPageBase;
 import com.fineui.java.core.MessageBoxIcon;
 import com.fineui.java.quickstart.model.Movie;
@@ -19,7 +20,7 @@ import com.fineui.java.quickstart.repository.MovieRepository;
  * 主键用 {@code @HiddenProperty} 随 __FSTATE 往返。
  */
 @FineUIPage("movie-edit")
-public class MovieEditModel extends FineUIPageBase {
+public class MovieEditModel extends PageBase {
 
     private final MovieRepository movieRepository;
 
