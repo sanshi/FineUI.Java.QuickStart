@@ -35,6 +35,8 @@ mvn -version      # 应输出 Maven 版本，且其中 Java version 为 17+
 
 FineUI 前端运行时（`/F/FineUI.js`、CSS、主题、语言包）已内嵌在 jar 里，`GET /F/FineUI.js` 自动命中——**无需单独部署前端资源**。
 
+页面默认开启严格脚本 CSP：只允许同源脚本文件和当前请求授权的模板脚本，不允许原生事件属性或字符串代码执行。`f:` 模板中的普通 `<script>` 由 FineUI.Java 自动加 nonce；升级 `fineui.version` 时须选用包含自动 nonce 处理器的版本。H2 控制台是开发工具，其页面不经过 FineUI 模板渲染。
+
 ## 构建
 
 安装 JDK 17 与 Maven 后，在仓库根目录运行：
