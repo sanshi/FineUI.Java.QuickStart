@@ -80,37 +80,37 @@
             <div id="themecontainer">
                 <div class="grouptitle f-widget-content">内置（Pure）</div>
                 <ul class="main f-widget-content">
-                    <li><a href="javascript:;"><img th:src="@{/res/images/themes/pure_black.png}" alt="Pure Black" data-value="Pure_Black" /></a>
+                    <li><a href="#"><img th:src="@{/res/images/themes/pure_black.png}" alt="Pure Black" data-value="Pure_Black" /></a>
                         <div class="title">Pure Black</div>
                     </li>
-                    <li><a href="javascript:;"><img th:src="@{/res/images/themes/pure_green.png}" alt="Pure Green" data-value="Pure_Green" /></a>
+                    <li><a href="#"><img th:src="@{/res/images/themes/pure_green.png}" alt="Pure Green" data-value="Pure_Green" /></a>
                         <div class="title">Pure Green</div>
                     </li>
-                    <li><a href="javascript:;"><img th:src="@{/res/images/themes/pure_blue.png}" alt="Pure Blue" data-value="Pure_Blue" /></a>
+                    <li><a href="#"><img th:src="@{/res/images/themes/pure_blue.png}" alt="Pure Blue" data-value="Pure_Blue" /></a>
                         <div class="title">Pure Blue</div>
                     </li>
-                    <li><a href="javascript:;"><img th:src="@{/res/images/themes/pure_purple.png}" alt="Pure Purple" data-value="Pure_Purple" /></a>
+                    <li><a href="#"><img th:src="@{/res/images/themes/pure_purple.png}" alt="Pure Purple" data-value="Pure_Purple" /></a>
                         <div class="title">Pure Purple</div>
                     </li>
-                    <li><a href="javascript:;"><img th:src="@{/res/images/themes/pure_orange.png}" alt="Pure Orange" data-value="Pure_Orange" /></a>
+                    <li><a href="#"><img th:src="@{/res/images/themes/pure_orange.png}" alt="Pure Orange" data-value="Pure_Orange" /></a>
                         <div class="title">Pure Orange</div>
                     </li>
                 </ul>
                 <div class="grouptitle f-widget-content">内置（jQuery UI）</div>
                 <ul class="main f-widget-content">
-                    <li><a href="javascript:;"><img th:src="@{/res/images/themes/cupertino.png}" alt="Cupertino" data-value="Cupertino" /></a>
+                    <li><a href="#"><img th:src="@{/res/images/themes/cupertino.png}" alt="Cupertino" data-value="Cupertino" /></a>
                         <div class="title">Cupertino</div>
                     </li>
-                    <li><a href="javascript:;"><img th:src="@{/res/images/themes/start.png}" alt="Start" data-value="Start" /></a>
+                    <li><a href="#"><img th:src="@{/res/images/themes/start.png}" alt="Start" data-value="Start" /></a>
                         <div class="title">Start</div>
                     </li>
-                    <li><a href="javascript:;"><img th:src="@{/res/images/themes/dark_hive.png}" alt="Dark Hive" data-value="Dark_Hive" /></a>
+                    <li><a href="#"><img th:src="@{/res/images/themes/dark_hive.png}" alt="Dark Hive" data-value="Dark_Hive" /></a>
                         <div class="title">Dark Hive</div>
                     </li>
-                    <li><a href="javascript:;"><img th:src="@{/res/images/themes/flick.png}" alt="Flick" data-value="Flick" /></a>
+                    <li><a href="#"><img th:src="@{/res/images/themes/flick.png}" alt="Flick" data-value="Flick" /></a>
                         <div class="title">Flick</div>
                     </li>
-                    <li><a href="javascript:;"><img th:src="@{/res/images/themes/south_street.png}" alt="South Street" data-value="South_Street" /></a>
+                    <li><a href="#"><img th:src="@{/res/images/themes/south_street.png}" alt="South Street" data-value="South_Street" /></a>
                         <div class="title">South Street</div>
                     </li>
                 </ul>
@@ -119,21 +119,21 @@
                     <span class="note">注：自定义主题的背景图片均来自网络，版权归原作者！</span>
                 </div>
                 <ul class="main f-widget-content">
-                    <li><a href="javascript:;"><img th:src="@{/res/images/themes/custom_default.png}" alt="Custom Default" data-value="custom_default" /></a>
+                    <li><a href="#"><img th:src="@{/res/images/themes/custom_default.png}" alt="Custom Default" data-value="custom_default" /></a>
                         <div class="title">Custom Default</div>
                     </li>
-                    <li><a href="javascript:;"><img th:src="@{/res/images/themes/image_green_rain.png}" alt="Image Green Rain"
+                    <li><a href="#"><img th:src="@{/res/images/themes/image_green_rain.png}" alt="Image Green Rain"
                                 data-value="image_green_rain" /></a>
                         <div class="title">Image Green Rain</div>
                     </li>
-                    <li><a href="javascript:;"><img th:src="@{/res/images/themes/image_green_lotus.png}" alt="Image Green Lotus"
+                    <li><a href="#"><img th:src="@{/res/images/themes/image_green_lotus.png}" alt="Image Green Lotus"
                                 data-value="image_green_lotus" /></a>
                         <div class="title">Image Green Lotus</div>
                     </li>
-                    <li><a href="javascript:;"><img th:src="@{/res/images/themes/image_blue_sky.png}" alt="Image Blue Sky" data-value="image_blue_sky" /></a>
+                    <li><a href="#"><img th:src="@{/res/images/themes/image_blue_sky.png}" alt="Image Blue Sky" data-value="image_blue_sky" /></a>
                         <div class="title">Image Blue Sky</div>
                     </li>
-                    <li><a href="javascript:;"><img th:src="@{/res/images/themes/image_purple_fog.png}" alt="Image Purple Fog"
+                    <li><a href="#"><img th:src="@{/res/images/themes/image_purple_fog.png}" alt="Image Purple Fog"
                                 data-value="image_purple_fog" /></a>
                         <div class="title">Image Purple Fog</div>
                     </li>
@@ -156,7 +156,8 @@
                         $(this).addClass('f-state-hover');
                     }, function() {
                         $(this).removeClass('f-state-hover');
-                    }).click(function() {
+                    }).click(function(event) {
+                        event.preventDefault();
                         var imgNode = $(this).find('img');
                         var themeName = imgNode.attr('data-value');
                         F.cookie('Theme', themeName, {
