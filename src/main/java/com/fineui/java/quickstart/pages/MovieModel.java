@@ -1,5 +1,6 @@
 package com.fineui.java.quickstart.pages;
 
+import com.fineui.java.core.Alert;
 import com.fineui.java.core.EventArgs;
 import com.fineui.java.core.FineUIPage;
 import com.fineui.java.quickstart.PageBase;
@@ -107,7 +108,7 @@ public class MovieModel extends PageBase {
             }
             Integer id = Integer.valueOf(String.valueOf(keys.get(idx)[0]));
             if (!movieRepository.existsById(id)) {
-                showAlert("指定的电影不存在！");
+                Alert.show("指定的电影不存在！");
                 return;
             }
             movieRepository.deleteById(id);

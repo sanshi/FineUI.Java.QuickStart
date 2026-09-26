@@ -1,5 +1,6 @@
 package com.fineui.java.quickstart.pages;
 
+import com.fineui.java.core.Alert;
 import com.fineui.java.core.EventArgs;
 import com.fineui.java.core.FineUIPage;
 import com.fineui.java.quickstart.PageBase;
@@ -16,6 +17,6 @@ public class HelloModel extends PageBase {
     }
 
     public void btnHello_Click(Object sender, EventArgs e) {
-        showAlert("你好 FineUI！", null, MessageBoxIcon.Warning);
+        Alert.show("你好 FineUI！", null, MessageBoxIcon.Warning);
     }
 }
