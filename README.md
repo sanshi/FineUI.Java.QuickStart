@@ -31,7 +31,7 @@ mvn -version      # 应输出 Maven 版本，且其中 Java version 为 17+
 
 ## 依赖方式
 
-项目文件已声明从公共软件包仓库获取的 Maven 包 `com.fineui:fineui-java`（**社区版**，永久免费商用）。正常联网构建时，包管理器会自动还原依赖；仓库不包含 FineUI.Core.dll、FineUI.Pro.dll、fineui-java.jar，也不包含 FineUI 框架源码。
+项目文件已声明从公共软件包仓库获取的 Maven 包 `com.fineui:fineui-java`（**社区版**，永久免费商用）。正常联网构建时，包管理器会自动还原依赖。
 
 FineUI 前端运行时（`/F/FineUI.js`、CSS、主题、语言包）已内嵌在 jar 里，`GET /F/FineUI.js` 自动命中——**无需单独部署前端资源**。
 
