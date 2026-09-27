@@ -33,7 +33,7 @@ mvn -version      # 应输出 Maven 版本，且其中 Java version 为 17+
 
 项目文件已声明从公共软件包仓库获取的 Maven 包 `com.fineui:fineui-java`（**社区版**，永久免费商用）。正常联网构建时，包管理器会自动还原依赖。
 
-FineUI 前端运行时（`/F/FineUI.js`、CSS、主题、语言包）已内嵌在 jar 里，`GET /F/FineUI.js` 自动命中——**无需单独部署前端资源**。
+FineUI 前端运行时（`/FineUI/FineUI.js`、CSS、主题、语言包）已内嵌在 jar 里，`GET /FineUI/FineUI.js` 自动命中——**无需单独部署前端资源**。
 
 FineUI 页面默认开启严格脚本 CSP：只允许同源脚本文件和当前请求授权的模板脚本，不允许原生事件属性或字符串代码执行。`f:` 模板中的普通 `<script>` 由 FineUI.Java 自动加 nonce；升级 `fineui.version` 时须选用包含自动 nonce 处理器的版本。静态 HTML 和普通错误响应不在此策略范围内。
 
@@ -99,7 +99,7 @@ spring.sql.init.mode=always                   # 总是执行 data.sql（脚本�
 
 **启动报找不到 `com.fineui:fineui-java`？** 先检查 Maven 网络、代理与中央仓库镜像。
 
-**页面样式/脚本 404（/F/FineUI.js 加载不到）？** 确认依赖已经成功解析（前端资源已内嵌其中，无需单独部署）。
+**页面样式/脚本 404（/FineUI/FineUI.js 加载不到）？** 确认依赖已经成功解析（前端资源已内嵌其中，无需单独部署）。
 
 **电影列表为空？** 确认 `spring.sql.init.mode=always` 已配置（H2 连接串带 `AUTO_SERVER=TRUE` 会被 Spring
 判为“非嵌入式”而默认跳过 `data.sql`，用 `always` 强制执行）。
