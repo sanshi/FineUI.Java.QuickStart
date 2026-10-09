@@ -6,16 +6,17 @@
         <th:block layout:fragment="head">
             <link type="text/css" rel="stylesheet" th:href="@{/res/css/index.css}" />
         </th:block>
-    
-    <style type="text/css">
-        /* 侧边栏宽度：res/js/index.js 从这两个变量读初始宽度与折叠后的微型宽度，
+
+        <style type="text/css">
+            /* 侧边栏宽度：res/js/index.js 从这两个变量读初始宽度与折叠后的微型宽度，
            必须与侧栏区域上的 Width 属性保持一致（两处都改，否则初始宽度和拖动宽度会打架）。 */
-        :root {
-            --sidebar-width: 320px;
-            --sidebar-minimode-width: 70px;
-        }
-    </style>
-</head>
+            :root {
+                --sidebar-width: 320px;
+                --sidebar-minimode-width: 70px;
+            }
+
+        </style>
+    </head>
 
     <body>
         <th:block layout:fragment="body">
@@ -93,12 +94,13 @@
                             <f:content-panel id="topPanel" css-class="topregion" show-border="false" show-header="false">
                                 <div id="header" class="f-widget-header f-mainheader">
                                     <div class="header-left">
-                                        <f:button id="btnCollapseSidebar" css-class="icononlyaction" tool-tip="折叠/展开侧边栏" icon-align="Top" icon-font="_Fold" enable-default-state="false" tab-index="-1" click-handler="onFoldClick"></f:button>
+                                        <f:button id="btnCollapseSidebar" css-class="icononlyaction" tool-tip="折叠/展开侧边栏" icon-align="Top" icon-font="_Fold"
+                                            enable-default-state="false" tab-index="-1" click-handler="onFoldClick"></f:button>
                                     </div>
                                     <div class="header-right">
                                         <f:button id="btnThemeSelect" enable-default-corner="false" enable-default-state="false" icon-font="_Skin"
                                             icon-align="Top" css-class="icononlyaction themes" tool-tip="主题仓库" click-handler="onThemeSelectClick"></f:button>
-                                        <f:button id="btnUser" enable-default-corner="false" enable-default-state="false" icon-url="/res/images/my_face_80.jpg"
+                                        <f:button id="btnUser" enable-default-corner="false" enable-default-state="false" icon-url="/res/images/my-face-80.jpg"
                                             icon-align="Left" css-class="userpicaction" text="三生石上">
                                             <f:menu>
                                                 <f:items>
@@ -113,7 +115,8 @@
                             <f:tab-strip id="mainTabStrip" css-class="centerregion" show-ink-bar="true" ink-bar-position="Bottom" box-flex="1"
                                 show-border="true" enable-tab-close-menu="true">
                                 <f:tabs>
-                                    <f:tab id="tabHomepage" title="首页" icon-font="_Home" enable-iframe="false" body-padding="10" content-el="#maincontent" auto-scroll="true">
+                                    <f:tab id="tabHomepage" title="首页" icon-font="_Home" enable-iframe="false" body-padding="10" content-el="#maincontent"
+                                        auto-scroll="true">
                                     </f:tab>
                                 </f:tabs>
                             </f:tab-strip>
@@ -142,6 +145,7 @@
                 function onNotImplementedClick(event) {
                     F.alert('尚未实现');
                 }
+
             </script>
             <script th:src="@{/res/js/index.js}"></script>
         </th:block>
