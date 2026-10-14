@@ -45,7 +45,7 @@ public class MovieEditModel extends PageBase {
         movieId = getQueryInt("id", 0);
         movie = movieRepository.findById(movieId).orElse(null);
         if (movie == null) {
-            throw new AbortPageException("该电影不存在或已被删除！", ActiveWindow.hideReference());
+            throw new AbortPageException("该电影不存在或已被删除！", ActiveWindow.hideCommand());
         }
     }
 
