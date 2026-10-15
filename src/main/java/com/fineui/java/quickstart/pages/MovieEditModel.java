@@ -2,7 +2,7 @@ package com.fineui.java.quickstart.pages;
 
 import com.fineui.java.binding.BindProperty;
 import com.fineui.java.binding.HiddenProperty;
-import com.fineui.java.core.AbortPageException;
+import com.fineui.java.core.PageContext;
 import com.fineui.java.core.ActiveWindow;
 import com.fineui.java.core.EventArgs;
 import com.fineui.java.core.FineUIPage;
@@ -45,7 +45,8 @@ public class MovieEditModel extends PageBase {
         movieId = getQueryInt("id", 0);
         movie = movieRepository.findById(movieId).orElse(null);
         if (movie == null) {
-            throw new AbortPageException("该电影不存在或已被删除！", ActiveWindow.hideCommand());
+            PageContext.abortPage("该电影不存在或已被删除！", ActiveWindow.hideCommand());
+            return;
         }
     }
 
