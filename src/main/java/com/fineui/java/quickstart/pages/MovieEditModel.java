@@ -38,7 +38,7 @@ public class MovieEditModel extends PageBase {
 
     /** 首屏和回发都核对地址中的电影；首次打开页面时再把它交给表单显示。 */
     public void Page_Init(Object sender, EventArgs e) {
-        storedMovie = movieRepository.findById(getQueryInt("id", 0)).orElse(null);
+        storedMovie = movieRepository.findById(getQueryIntValue("id")).orElse(null);
         if (storedMovie == null) {
             PageContext.abortPage("该电影不存在或已被删除！", ActiveWindow.hideCommand());
             return;
